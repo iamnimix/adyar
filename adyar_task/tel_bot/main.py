@@ -12,6 +12,8 @@ from adyar_task.backend.groq_tool import enhance_prompt
 
 BACKEND_URL = "http://localhost:8000/falai/sora"
 
+TELEGRAM_TOKEN = ""
+
 
 CHOOSING, TEXT_PROMPT, IMAGE_PROMPT = range(3)
 
@@ -88,7 +90,7 @@ async def cancel(update: Update, context: ContextTypes.DEFAULT_TYPE):
     return ConversationHandler.END
 
 
-app = ApplicationBuilder().token("").build()
+app = ApplicationBuilder().token(TELEGRAM_TOKEN).build()
 
 conv_handler = ConversationHandler(
     entry_points=[CommandHandler('start', start)],
